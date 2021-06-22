@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.jzy3d</groupId>
+		<artifactId>jzy3d-all</artifactId>
+		<version>2.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>jzy3d-emul-gl-swt</artifactId>
+	<name>Jzy3d EmulGL Implementation for SWT with jGL</name>
+	<properties>
+		<swt-version>3.116.100</swt-version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.platform</groupId>
+			<artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
+			<version>${swt-version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.eclipse.platform</groupId>
+					<artifactId>org.eclipse.swt</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.jzy3d</groupId>
+			<artifactId>jGL</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+</project>
+
