@@ -8,6 +8,7 @@ import org.eclipse.swt.opengl.GLData;
 import org.eclipse.swt.widgets.Composite;
 
 import jgl.GL;
+import jgl.swt.JGLCanvas;
 
 public class bezcurve extends JGLCanvas {
 

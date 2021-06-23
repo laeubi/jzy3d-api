@@ -297,6 +297,8 @@ public abstract class GL<ImageType, FontType> {
 		}
 	}
 
+	public abstract ImageType getRenderedImage();
+
   protected void clearImagesBuffer() {
     synchronized (imageToDraw) {
       imageToDraw.clear(); // empty image buffer

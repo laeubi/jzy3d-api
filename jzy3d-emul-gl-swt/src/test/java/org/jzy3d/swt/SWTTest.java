@@ -19,6 +19,8 @@ import org.eclipse.swt.opengl.GLData;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
+import jgl.swt.JGLCanvas;
+
 public class SWTTest {
 
 	public static void main(String[] args) {

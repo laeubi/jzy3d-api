@@ -10,31 +10,28 @@
  * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
  */
-package org.jzy3d.swt;
+package jgl.swt;
 
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.ControlListener;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.ImageData;
-import org.eclipse.swt.graphics.PaletteData;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.opengl.GLCanvas;
 import org.eclipse.swt.opengl.GLData;
 import org.eclipse.swt.widgets.Composite;
 
-import jgl.GL;
-
 public class JGLCanvas extends GLCanvas {
 
-	protected GL gl = new SWTGL();
+	protected GL gl;
 
 	public JGLCanvas(Composite parent, int style, GLData data) {
 
 		super(parent, style, data);
+		gl = new GL(parent.getDisplay());
+		parent.addDisposeListener(e -> gl.dispose());
 		gl.setAutoAdaptToHiDPI(false);
-		doResize(0, 0);
+		gl.glViewport(0, 0, 0, 0);
 		addControlListener(new ControlListener() {
 
 			@Override
@@ -65,15 +62,10 @@ public class JGLCanvas extends GLCanvas {
 		gc.setBackground(getBackground());
 		Point size = getSize();
 		gc.fillRectangle(0, 0, size.x, size.y);
-		gc.setForeground(gc.getDevice().getSystemColor(SWT.COLOR_RED));
-		gc.drawLine(0, 0, size.x, size.y);
-		SWTGL swtgl = (SWTGL)gl;
-		if(swtgl.imageData != null) {
-			Image image = new Image(gc.getDevice(), swtgl.imageData);
+		Image image = gl.getRenderedImage();
+		if(image != null) {
 			gc.drawImage(image, 0, 0);
-			image.dispose();
 		}
-		System.out.println("paint done");
 	}
 
 	public GL getGL() {
@@ -87,24 +79,10 @@ public class JGLCanvas extends GLCanvas {
 		super.setCurrent();
 	}
 
-	private static final class SWTGL extends GL {
+	@Override
+	public void swapBuffers() {
 
-		private ImageData imageData;
-
-		@Override
-		public void glFlush() {
-
-			int[] buffer = Context.ColorBuffer.Buffer;
-			int width = Context.Viewport.Width;
-			int height = Context.Viewport.Height;
-			PaletteData palette = new PaletteData(0xFF0000, 0xFF00, 0xFF);
-			imageData = new ImageData(width, height, 24, palette);
-			imageData.setPixels(0, 0, buffer.length, buffer, 0);
-			byte[] alphaBytes = new byte[buffer.length];
-			for(int i = 0; i < alphaBytes.length; i++) {
-				alphaBytes[i] = (byte)((buffer[i] >> 24) & 0xFF);
-			}
-			imageData.setAlphas(0, 0, alphaBytes.length, alphaBytes, 0);
-		}
+		super.swapBuffers();
 	}
+
 }
