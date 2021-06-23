@@ -1,7 +1,7 @@
 package examples.applets.glut;
 
 import jgl.GL;
-import jgl.GLApplet;
+import jgl.awt.GLApplet;
 
 class CP {
   public float x[] = new float[2];

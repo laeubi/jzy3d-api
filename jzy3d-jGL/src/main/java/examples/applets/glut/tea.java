@@ -1,7 +1,7 @@
 package examples.applets.glut;
 
 import jgl.GL;
-import jgl.GLApplet;
+import jgl.awt.GLApplet;
 
 public class tea extends GLApplet {
 

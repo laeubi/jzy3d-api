@@ -5,8 +5,8 @@ package examples.applets.glut;
  */
 
 import jgl.GL;
-import jgl.GLApplet;
-import jgl.GLUT;
+import jgl.awt.GLApplet;
+import jgl.awt.GLUT;
 
 public class colormat extends GLApplet {
 

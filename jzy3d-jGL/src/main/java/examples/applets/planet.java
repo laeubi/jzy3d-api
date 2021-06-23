@@ -6,10 +6,11 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-// must import jgl.GL....
-import jgl.GL;
-import jgl.GLAUX;
-import jgl.GLU;
+
+
+import jgl.awt.GLAUX;
+import jgl.awt.GLU;
+import jgl.awt.GL;
 
 public class planet extends Applet implements ComponentListener, KeyListener {
   // must use GL to use jGL.....

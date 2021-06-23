@@ -4,9 +4,10 @@ import java.applet.Applet;
 import java.awt.Graphics;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
-// must import jgl.GL....
-import jgl.GL;
-import jgl.GLAUX;
+
+
+import jgl.awt.GLAUX;
+import jgl.awt.GL;
 
 public class bezmesh extends Applet implements ComponentListener {
   // must use GL to use jGL.....

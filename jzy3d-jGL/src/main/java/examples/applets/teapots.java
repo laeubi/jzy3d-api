@@ -5,9 +5,10 @@ import java.awt.Graphics;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.util.Date;
-// must import jgl.GL....
-import jgl.GL;
-import jgl.GLAUX;
+
+
+import jgl.awt.GLAUX;
+import jgl.awt.GL;
 
 public class teapots extends Applet implements ComponentListener {
   // must use GL to use jGL.....

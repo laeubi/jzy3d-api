@@ -6,8 +6,8 @@ package examples.applets.glut;
  */
 
 import jgl.GL;
-import jgl.GLApplet;
-import jgl.GLU;
+import jgl.awt.GLApplet;
+import jgl.awt.GLU;
 import jgl.glu.GLUquadricObj;
 
 public class quadric extends GLApplet {

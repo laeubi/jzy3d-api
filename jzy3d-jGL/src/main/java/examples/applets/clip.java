@@ -4,10 +4,11 @@ import java.applet.Applet;
 import java.awt.Graphics;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
-// must import jgl.GL....
-import jgl.GL;
-import jgl.GLAUX;
-import jgl.GLU;
+
+
+import jgl.awt.GLAUX;
+import jgl.awt.GLU;
+import jgl.awt.GL;
 
 public class clip extends Applet implements ComponentListener {
   // must use GL to use jGL.....

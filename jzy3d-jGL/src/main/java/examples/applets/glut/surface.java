@@ -4,9 +4,9 @@ package examples.applets.glut;
  */
 
 import jgl.GL;
-import jgl.GLApplet;
-import jgl.GLU;
-import jgl.GLUT;
+import jgl.awt.GLApplet;
+import jgl.awt.GLU;
+import jgl.awt.GLUT;
 import jgl.glu.GLUnurbsObj;
 
 public class surface extends GLApplet {
